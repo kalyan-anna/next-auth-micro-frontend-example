@@ -6,7 +6,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to account!</title>
+        <title>StrataPro | Account</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
