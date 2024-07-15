@@ -1,0 +1,24 @@
+{
+  "name": "account-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apis/account-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "account-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "account-api:build:development"
+        },
+        "production": {
+          "buildTarget": "account-api:build:production"
+        }
+      }
+    }
+  }
+}
