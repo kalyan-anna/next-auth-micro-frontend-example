@@ -1,6 +1,10 @@
 import { CardLink } from '@stratapro/ui';
+import { usePropertiesQuery } from '../../state/properties';
 
 export function Dashboard() {
+  const { data, isLoading } = usePropertiesQuery();
+  console.log('data:', data);
+  console.log('isLoading:', isLoading);
   return (
     <>
       <div className="my-4">

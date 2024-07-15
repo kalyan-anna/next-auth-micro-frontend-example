@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 
 import { AccountService } from './account.service';
 
-@Controller({ path: '/propertiesByUser' })
+@Controller({ path: '/properties' })
 export class AccountController {
   constructor(private readonly appService: AccountService) {}
 

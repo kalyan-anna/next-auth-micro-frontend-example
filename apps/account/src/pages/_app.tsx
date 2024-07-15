@@ -2,6 +2,8 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
 import { Layout } from '../layout/Layout';
+import { queryClient } from '../utils/query.helper';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,9 +12,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>StrataPro | Account</title>
       </Head>
       <main className="app">
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </QueryClientProvider>
       </main>
     </>
   );

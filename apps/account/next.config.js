@@ -8,6 +8,9 @@ const { composePlugins, withNx } = require('@nx/next');
  **/
 const nextConfig = {
   basePath: '/account',
+  publicRuntimeConfig: {
+    ACCOUNT_API_BASE: process.env.NX_PUBLIC_ACCOUNT_API_BASE,
+  },
   nx: {
     // Set this to true if you would like to use SVGR
     // See: https://github.com/gregberge/svgr
