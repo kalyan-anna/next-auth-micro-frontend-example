@@ -11,7 +11,7 @@ const nextConfig = {
     return [
       {
         source: '/account/:slug*',
-        destination: 'http://localhost:8081/account',
+        destination: 'http://localhost:8081/account/:slug*',
       },
     ];
   },

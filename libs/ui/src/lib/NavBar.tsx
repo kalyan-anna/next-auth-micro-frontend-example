@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 const links = [
   {
-    href: '/account',
+    href: '/account/dashboard',
     label: 'Dashboard',
   },
   {
@@ -16,7 +16,7 @@ const links = [
 
 interface NavBarProps extends HTMLAttributes<HTMLElement> {
   activePath?: string;
-  showNav?: string;
+  showNav?: boolean;
   onSigninClick?: MouseEventHandler<HTMLButtonElement>;
   onSignoutClick?: MouseEventHandler<HTMLButtonElement>;
   authenticated?: boolean;
