@@ -1,0 +1,20 @@
+{
+  "name": "est",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/est",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project est --web",
+  "targets": {
+    "dev": {
+      "options": {
+        "port": "8082"
+      }
+    },
+    "start": {
+      "options": {
+        "port": "8082"
+      }
+    }
+  }
+}

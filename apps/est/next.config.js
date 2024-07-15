@@ -7,18 +7,7 @@ const { composePlugins, withNx } = require('@nx/next');
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: '/account/:slug*',
-        destination: 'http://localhost:8081/account/:slug*',
-      },
-      {
-        source: '/establishment/:slug*',
-        destination: 'http://localhost:8082/establishment/:slug*',
-      },
-    ];
-  },
+  basePath: '/establishment',
   nx: {
     // Set this to true if you would like to use SVGR
     // See: https://github.com/gregberge/svgr
