@@ -1,11 +1,16 @@
 import { CardClickable, ListSkeleton } from '@stratapro/ui';
 import { Property, usePropertiesQuery } from '../state/properties';
+import { useAppState } from '../state/app';
+import { useRouter } from 'next/router';
 
 export function Index() {
   const { data, isLoading } = usePropertiesQuery();
+  const { setSelectedProperty } = useAppState.use.actions();
+  const router = useRouter();
 
   const handleSelectProperty = (item: Property) => {
-    console.log('selected property:', item);
+    setSelectedProperty(item);
+    router.push('/dashboard');
   };
 
   return (

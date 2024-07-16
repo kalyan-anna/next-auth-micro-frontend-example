@@ -4,3 +4,7 @@ export type Property = {
   propertyType: 'residential' | 'commercial';
   noOfUnits: number;
 };
+
+export type PropertyWithUsers = Property & {
+  userEmails?: string[];
+};

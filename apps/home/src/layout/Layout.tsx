@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const handleSignin = () => {
-    console.log('handleSignin clicked....');
+    window.location.href = 'http://localhost:8080/account';
   };
 
   return (

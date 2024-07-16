@@ -4,6 +4,7 @@ import './styles.css';
 import { Layout } from '../layout/Layout';
 import { queryClient } from '../utils/query.helper';
 import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,6 +14,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <main className="app">
         <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
           <Layout>
             <Component {...pageProps} />
           </Layout>

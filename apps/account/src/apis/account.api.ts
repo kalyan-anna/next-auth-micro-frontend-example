@@ -1,6 +1,10 @@
 import { makeApi, Zodios } from '@zodios/core';
 import axios, { InternalAxiosRequestConfig } from 'axios';
-import { getPropertiesApi } from './property.schema';
+import {
+  addNewUserApi,
+  getPropertiesApi,
+  getPropertyApi,
+} from './property.schema';
 import { config } from '../utils/config.helper';
 
 const instance = axios.create({});
@@ -12,7 +16,7 @@ instance.interceptors.request.use(
   }
 );
 
-export const api = makeApi([getPropertiesApi]);
+export const api = makeApi([getPropertiesApi, getPropertyApi, addNewUserApi]);
 
 export const accountApiClient = new Zodios(api, {
   sendDefaults: true,
