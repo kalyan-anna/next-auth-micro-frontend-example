@@ -16,6 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@stratapro/auth": ["libs/auth/src/index.ts"],
+      "@stratapro/properties-prisma-client": [
+        "libs/properties-prisma-client/src/index.ts"
+      ],
+      "@stratapro/properties-prisma-schema": [
+        "libs/properties-prisma-schema/src/index.ts"
+      ],
       "@stratapro/ui": ["libs/ui/src/index.ts"]
     }
   },

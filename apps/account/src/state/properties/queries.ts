@@ -11,7 +11,7 @@ import { Property } from './types';
 const propertyKeys = {
   all: ['properties'] as const,
   lists: () => [...propertyKeys.all, 'list'] as const,
-  item: (propertyId: string) =>
+  item: (propertyId?: number) =>
     [...propertyKeys.lists(), { propertyId }] as const,
 };
 
@@ -23,20 +23,20 @@ export const usePropertiesQuery = (): UseQueryResult<Property[]> => {
 };
 
 export const usePropertyQuery = (
-  propertyId: string | undefined
+  propertyId: number | undefined
 ): UseQueryResult<Property> => {
   return useQuery({
-    queryKey: propertyKeys.item(propertyId ?? ''),
+    queryKey: propertyKeys.item(propertyId),
     queryFn: () =>
       accountApiClient.getProperty({
-        params: { propertyId: propertyId ?? '' },
+        params: { propertyId: propertyId ?? 0 },
       }),
     enabled: !!propertyId,
   });
 };
 
 export const useAddNewUserMutation = (
-  propertyId: string
+  propertyId?: number
 ): UseMutationResult<unknown, Error, string> => {
   const queryClient = useQueryClient();
 
@@ -45,7 +45,7 @@ export const useAddNewUserMutation = (
       accountApiClient.addNewUser(
         { email },
         {
-          params: { propertyId: propertyId ?? '' },
+          params: { propertyId: propertyId ?? 0 },
         }
       ),
     onSuccess: async () => {

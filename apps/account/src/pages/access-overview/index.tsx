@@ -12,7 +12,7 @@ export function AccessOverview() {
   const router = useRouter();
   const selectedProperty = useAppState.use.selectedProperty();
   const { isLoading, data } = usePropertyQuery(selectedProperty?.id);
-  const mutation = useAddNewUserMutation(selectedProperty?.id ?? '');
+  const mutation = useAddNewUserMutation(selectedProperty?.id);
   const [inputValue, setInputValue] = useState('');
 
   const handleCancel = () => {

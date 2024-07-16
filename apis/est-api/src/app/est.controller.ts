@@ -8,6 +8,6 @@ export class EstablishmentController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.appService.getPropertyById(id);
+    return this.appService.getPropertyById(Number(id));
   }
 }

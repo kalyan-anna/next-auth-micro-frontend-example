@@ -3,7 +3,7 @@ import { makeEndpoint } from '@zodios/core';
 import * as z from 'zod';
 
 export const propertySchema = z.object({
-  id: z.string(),
+  id: z.number(),
   propertyName: z.string(),
   propertyType: z.string(),
   noOfUnits: z.number(),
@@ -19,7 +19,7 @@ export const getPropertyApi = makeEndpoint({
     {
       name: 'propertyId',
       type: 'Path',
-      schema: z.string(),
+      schema: z.number(),
     },
   ],
 });

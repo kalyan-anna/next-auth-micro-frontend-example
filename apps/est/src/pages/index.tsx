@@ -6,7 +6,7 @@ import { PropertyDetails } from '../components/PropertyDetails';
 export function Index() {
   const router = useRouter();
   const { query } = router;
-  const selectedPropertyId = query.selectedPropertyId as string;
+  const selectedPropertyId = Number(query.selectedPropertyId);
   const { isLoading, data } = usePropertyQuery(selectedPropertyId);
 
   return (
