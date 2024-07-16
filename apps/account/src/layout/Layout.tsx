@@ -1,7 +1,10 @@
 import { NavBar, PageContainer } from '@stratapro/ui';
+import { usePathname } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
+  const pathname = usePathname();
+
   const handleSignout = () => {
     console.log('handleSignout clicked...');
   };
@@ -9,8 +12,8 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div>
       <NavBar
-        activePath="/account"
-        showNav={true}
+        activePath="/account/dashboard"
+        showNav={pathname !== '/'}
         authenticated={true}
         onSignoutClick={handleSignout}
       />

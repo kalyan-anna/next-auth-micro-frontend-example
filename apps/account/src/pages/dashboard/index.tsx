@@ -17,10 +17,13 @@ export function Dashboard() {
       {isLoading && <ListSkeleton />}
       {!isLoading && (
         <div className="my-12 flex flex-col gap-8">
-          <CardLink title="Establishment" href="/establishment">
+          <CardLink
+            title="Establishment / Property"
+            href={`/establishment?selectedPropertyId=${selectedProperty?.id}`}
+          >
             <p>view property details</p>
           </CardLink>
-          <CardLink title="Access Overview" href="/account/access-overview">
+          <CardLink title="Access Management" href="/account/access-overview">
             <p>Add people</p>
           </CardLink>
         </div>

@@ -1,4 +1,14 @@
+import { useRouter } from 'next/router';
+import { usePropertyQuery } from '../state/properties';
+import { ListSkeleton } from '@stratapro/ui';
+import { PropertyDetails } from '../components/PropertyDetails';
+
 export function Index() {
+  const router = useRouter();
+  const { query } = router;
+  const selectedPropertyId = query.selectedPropertyId as string;
+  const { isLoading, data } = usePropertyQuery(selectedPropertyId);
+
   return (
     <>
       <div className="my-4">
@@ -10,9 +20,11 @@ export function Index() {
         </h1>
       </div>
       <div className="my-12">
-        <h2 className="text-3xl font-bold dark:text-white">
+        <h2 className="text-3xl font-bold dark:text-white my-3">
           Your property details below
         </h2>
+        {isLoading && <ListSkeleton />}
+        {data && <PropertyDetails data={data} />}
       </div>
     </>
   );
