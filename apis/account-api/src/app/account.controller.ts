@@ -1,14 +1,10 @@
 import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
 
-import { AccountService } from './account.service';
 import { PropertyService } from '@stratapro/properties-prisma-client';
 
 @Controller('properties')
 export class AccountController {
-  constructor(
-    private readonly appService: AccountService,
-    private readonly propertyService: PropertyService
-  ) {}
+  constructor(private readonly propertyService: PropertyService) {}
 
   @Get()
   findAll() {
@@ -16,14 +12,16 @@ export class AccountController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.appService.getPropertyById(id);
+  findOne(@Param('id') id: string) {
+    return this.propertyService.getPropertyDetails(Number(id));
   }
 
   @Patch(':id/add-new-user')
-  addNewUser(@Param('id') id: number, @Body() payload: { email: string }) {
-    console.log('body input:', payload);
-    this.appService.addNewUser(id, payload.email);
-    return this.appService.getPropertyById(id);
+  async addNewUser(
+    @Param('id') id: string,
+    @Body() payload: { email: string }
+  ) {
+    await this.propertyService.addNewUser(Number(id), payload.email);
+    return this.propertyService.getProperty(Number(id));
   }
 }

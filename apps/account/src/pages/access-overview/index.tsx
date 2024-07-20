@@ -1,18 +1,18 @@
 import { Button, ListSkeleton } from '@stratapro/ui';
 import { useRouter } from 'next/router';
+import { ChangeEvent, useState } from 'react';
+import { ExistingUserList } from '../../components/ExistingUserList';
 import { useAppState } from '../../state/app';
 import {
   useAddNewUserMutation,
   usePropertyQuery,
 } from '../../state/properties';
-import { ExistingUserList } from '../../components/ExistingUserList';
-import { ChangeEvent, useState } from 'react';
 
 export function AccessOverview() {
   const router = useRouter();
   const selectedProperty = useAppState.use.selectedProperty();
   const { isLoading, data } = usePropertyQuery(selectedProperty?.id);
-  const mutation = useAddNewUserMutation(selectedProperty?.id);
+  const mutation = useAddNewUserMutation(selectedProperty?.id ?? 0);
   const [inputValue, setInputValue] = useState('');
 
   const handleCancel = () => {
@@ -22,7 +22,7 @@ export function AccessOverview() {
   const handleInvite = () => {
     if (inputValue) {
       mutation.mutate(inputValue, {
-        onSuccess: () => {
+        onSuccess() {
           router.push('/dashboard');
         },
       });
@@ -51,7 +51,11 @@ export function AccessOverview() {
         <div className="my-12 flex flex-col gap-8">
           <div>Add someone new to this property</div>
 
-          <form className="max-w-sm">
+          <form
+            className="max-w-sm"
+            noValidate
+            onSubmit={(e) => e.preventDefault()}
+          >
             <div className="mb-5">
               <label
                 htmlFor="email"
@@ -70,9 +74,7 @@ export function AccessOverview() {
               />
             </div>
             <div className="flex flex-col md:flex-row gap-2">
-              <Button type="submit" onClick={handleInvite}>
-                Invite
-              </Button>
+              <Button onClick={handleInvite}>Invite</Button>
               <Button variant="secondary" onClick={handleCancel}>
                 Cancel
               </Button>

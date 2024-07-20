@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
 
-import { EstablishmentController } from './est.controller';
-import { EstablishmentService } from './est.service';
 import { ConfigModule } from '@nestjs/config';
+import { PropertiesPrismaClientModule } from '@stratapro/properties-prisma-client';
+import { EstablishmentController } from './est.controller';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env.local',
     }),
+    PropertiesPrismaClientModule,
   ],
   controllers: [EstablishmentController],
-  providers: [EstablishmentService],
+  providers: [],
 })
 export class EstablishmentModule {}

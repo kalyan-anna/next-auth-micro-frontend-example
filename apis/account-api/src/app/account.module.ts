@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { AccountController } from './account.controller';
-import { AccountService } from './account.service';
 import { PropertiesPrismaClientModule } from '@stratapro/properties-prisma-client';
+import { AccountController } from './account.controller';
 
 @Module({
   imports: [PropertiesPrismaClientModule],
   controllers: [AccountController],
-  providers: [AccountService],
+  providers: [],
 })
 export class AccountModule {}

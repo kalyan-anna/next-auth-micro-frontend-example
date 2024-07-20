@@ -1,13 +1,13 @@
 import { Controller, Get, Param } from '@nestjs/common';
 
-import { EstablishmentService } from './est.service';
+import { PropertyService } from '@stratapro/properties-prisma-client';
 
 @Controller('properties')
 export class EstablishmentController {
-  constructor(private readonly appService: EstablishmentService) {}
+  constructor(private readonly propertyService: PropertyService) {}
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.appService.getPropertyById(Number(id));
+    return this.propertyService.getPropertyDetails(Number(id));
   }
 }
