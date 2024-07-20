@@ -24,6 +24,12 @@
       "options": {
         "cwd": "libs/properties-prisma-client"
       }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node libs/properties-prisma-client/prisma/seed/seed.ts"
+      }
     }
   }
 }
