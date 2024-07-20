@@ -1,7 +1,11 @@
-import { Logo } from '@stratapro/ui';
+import { Button, Logo } from '@stratapro/ui';
 import React from 'react';
 
 export const Hero = () => {
+  const handleSignin = () => {
+    window.location.href = 'http://localhost:8080/account';
+  };
+
   return (
     <div id="hero" className="rounded">
       <div className="text-container">
@@ -21,7 +25,9 @@ export const Hero = () => {
           </svg>
           <span>Get stuff done!</span>
         </h2>
-        <a href="#commands"> Explore </a>
+        <div className="mt-8">
+          <Button onClick={handleSignin}>Sign in</Button>
+        </div>
       </div>
       <div className="logo-container">
         <Logo className="w-36 h-36" />
