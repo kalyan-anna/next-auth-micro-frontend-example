@@ -47,3 +47,4 @@ out
 
 .env.local
 dev.db
+**/dev.db
