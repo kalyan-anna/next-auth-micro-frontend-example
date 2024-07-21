@@ -1,9 +1,9 @@
 import { Button, Logo } from '@stratapro/ui';
-import React from 'react';
+import { signIn } from 'next-auth/react';
 
 export const Hero = () => {
   const handleSignin = () => {
-    window.location.href = 'http://localhost:8080/account';
+    signIn('auth0', { callbackUrl: '/account' });
   };
 
   return (

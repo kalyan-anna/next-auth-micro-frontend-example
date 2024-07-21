@@ -17,6 +17,10 @@ const nextConfig = {
         source: '/establishment/:slug*',
         destination: 'http://localhost:8082/establishment/:slug*',
       },
+      {
+        source: '/auth/:slug*',
+        destination: 'http://localhost:8083/auth/:slug*',
+      },
     ];
   },
   nx: {

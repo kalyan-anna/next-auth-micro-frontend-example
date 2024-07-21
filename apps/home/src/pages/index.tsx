@@ -1,8 +1,11 @@
-import { Card } from '@stratapro/ui';
+import { Card, SessionDetails } from '@stratapro/ui';
 import { Hero } from '../components/Hero';
 import { NextSteps } from '../components/NextSteps';
+import { useSession } from 'next-auth/react';
 
 export function Index() {
+  const session = useSession();
+
   return (
     <>
       <div id="welcome">
@@ -11,6 +14,8 @@ export function Index() {
           Welcome 👋
         </h1>
       </div>
+
+      <SessionDetails session={session as any} />
 
       <Hero />
 
