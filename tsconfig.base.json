@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@stratapro/auth": ["libs/auth/src/index.ts"],
       "@stratapro/properties-prisma-client": [
         "libs/properties-prisma-client/src/index.ts"
       ],

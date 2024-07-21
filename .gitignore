@@ -48,3 +48,4 @@ out
 .env.local
 dev.db
 **/dev.db
+libs/properties-prisma-client/prisma/dev.db
