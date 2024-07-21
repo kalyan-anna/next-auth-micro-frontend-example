@@ -1,9 +1,10 @@
+import { authService } from '@stratapro/auth-lib';
 import { NavBar, PageContainer } from '@stratapro/ui';
 import { PropsWithChildren } from 'react';
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const handleSignin = () => {
-    window.location.href = 'http://localhost:8080/account';
+    authService.signIn();
   };
 
   return (

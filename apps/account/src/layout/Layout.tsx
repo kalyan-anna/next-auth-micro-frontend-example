@@ -1,3 +1,4 @@
+import { authService } from '@stratapro/auth-lib';
 import { NavBar, PageContainer } from '@stratapro/ui';
 import { usePathname } from 'next/navigation';
 import { PropsWithChildren } from 'react';
@@ -6,7 +7,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const pathname = usePathname();
 
   const handleSignout = () => {
-    console.log('handleSignout clicked...');
+    authService.signOut();
   };
 
   return (

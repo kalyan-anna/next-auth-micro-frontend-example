@@ -6,11 +6,13 @@ import {
   getPropertyApi,
 } from './property.schema';
 import { config } from '../utils/config.helper';
+import { authService } from '@stratapro/auth-lib';
 
 const instance = axios.create({});
 instance.interceptors.request.use(
   async (axiosConfig: InternalAxiosRequestConfig) => {
-    axiosConfig.headers.Authorization = `Bearer 123456789`;
+    const accessToken = await authService.acquireToken();
+    axiosConfig.headers.Authorization = `Bearer ${accessToken}`;
     axiosConfig.baseURL = config.ACCOUNT_API_BASE;
     return axiosConfig;
   }

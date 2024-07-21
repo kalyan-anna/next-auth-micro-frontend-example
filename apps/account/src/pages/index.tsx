@@ -2,11 +2,13 @@ import { CardClickable, ListSkeleton } from '@stratapro/ui';
 import { Property, usePropertiesQuery } from '../state/properties';
 import { useAppState } from '../state/app';
 import { useRouter } from 'next/router';
+import { useAuthentication } from '@stratapro/auth-lib';
 
 export function Index() {
   const { data, isLoading } = usePropertiesQuery();
   const { setSelectedProperty } = useAppState.use.actions();
   const router = useRouter();
+  const { session } = useAuthentication();
 
   const handleSelectProperty = (item: Property) => {
     setSelectedProperty(item);
@@ -17,8 +19,8 @@ export function Index() {
     <>
       <div className="my-4">
         <h1 className="text-4xl font-bold dark:text-white">
-          <span className="block text-2xl my-2 font-semibold">
-            Hello there,
+          <span className="block text-2xl my-3 font-semibold text-purple-600">
+            Hello {session.data?.user?.name},
           </span>
           Welcome to account&apos;s app 👋
         </h1>

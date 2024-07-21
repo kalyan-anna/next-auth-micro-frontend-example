@@ -5,10 +5,11 @@ import { Layout } from '../layout/Layout';
 import { queryClient } from '../utils/query.helper';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { AuthProvider } from '@stratapro/auth-lib';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <AuthProvider>
       <Head>
         <title>StrataPro | Account</title>
       </Head>
@@ -20,7 +21,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           </Layout>
         </QueryClientProvider>
       </main>
-    </>
+    </AuthProvider>
   );
 }
 

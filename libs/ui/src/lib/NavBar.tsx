@@ -7,10 +7,12 @@ const links = [
   {
     href: '/account/dashboard',
     label: 'Dashboard',
+    actualHref: '/account/dashboard',
   },
   {
     href: '/establishment',
     label: 'Establishment',
+    actualHref: '#', // just a 💩 workaround to stop clicking Est menu
   },
 ];
 
@@ -72,7 +74,7 @@ export const NavBar: React.FC<NavBarProps> = ({
               links.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={link.actualHref}
                     className={clsx(
                       'block py-2 px-3 text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0',
                       'hover:text-gray-900',
