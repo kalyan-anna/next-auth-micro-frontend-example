@@ -1,4 +1,5 @@
 # Next-Auth Micro-Frontend Example
+This is an attempt to implement server-side authentication using [Next-Auth](https://authjs.dev/) in a micro-frontend architecture.
 
 ## Start the application
 
@@ -27,3 +28,17 @@ npx nx run-many -t serve
 ```
 
 Access the app in `http://localhost:8080/`
+
+## Description
+The following setup is used
+
+Three Frontend Apps
+- Home
+- Account
+- Est
+
+Two Backend Apis
+- Account-api
+- Est-api
+
+`auth` server will receive the tokens from the authorization server callback.
