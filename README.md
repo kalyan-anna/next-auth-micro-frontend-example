@@ -13,8 +13,8 @@ Update the [seed.ts](libs/properties-prisma-client/prisma/seed/seed.ts) file wit
 ```
 nvm use
 npm install
-nx run properties-prisma-client:generate-types
-nx run properties-prisma-client:seed
+npx nx run properties-prisma-client:generate-types
+npx nx run properties-prisma-client:seed
 ```
 
 **console 2**  
