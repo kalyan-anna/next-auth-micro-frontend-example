@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("PROPERTY_DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 model Property {
