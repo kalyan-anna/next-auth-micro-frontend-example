@@ -1,4 +1,4 @@
-import { CardClickable, ListSkeleton } from '@stratapro/ui';
+import { CardClickable, ListSkeleton, SessionDetails } from '@stratapro/ui';
 import { Property, usePropertiesQuery } from '../state/properties';
 import { useAppState } from '../state/app';
 import { useRouter } from 'next/router';
@@ -42,6 +42,7 @@ export function Index() {
           ))}
         </div>
       </div>
+      <SessionDetails session={session} />
     </>
   );
 }
