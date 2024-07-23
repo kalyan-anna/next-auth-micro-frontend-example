@@ -11,7 +11,10 @@ const signIn = () => {
 };
 
 const signOut = () => {
-  nextauthSignout();
+  nextauthSignout({
+    callbackUrl: '/',
+    redirect: true,
+  });
 };
 
 const acquireToken = async () => {

@@ -8,7 +8,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientSecret: process.env.AUTH_CLIENT_SECRET,
       issuer: process.env.AUTH_CLIENT_ISSUER,
       authorization: {
-        params: { scope: process.env.AUTH_SCOPES },
+        params: {
+          scope: process.env.AUTH_SCOPES,
+          audience: process.env.AUTH_AUDIENCE,
+        },
       },
       redirectProxyUrl: 'http://localhost:8080/auth/api/auth',
     }),
@@ -39,4 +42,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return microFEBaseUrl;
     },
   },
+  debug: true,
 });
